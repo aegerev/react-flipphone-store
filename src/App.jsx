@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ItemList } from './components/ItemList.js';
-import { Cart } from './Cart';
+import { ItemList } from './components/ItemList.jsx';
+import { Cart }  from './components/Cart.jsx';
 
 export function App() {
 	const [cartItems, setCartItems] = useState([]);
@@ -18,12 +18,28 @@ export function App() {
 		}
 	};
 
+	const updateItemCount = (itemId, qty) => {
+		setCartItems(
+			cartItems.map((item) =>
+				item.id === itemId ? { ...item, qty: qty } : item
+			)
+		);
+	};
+
+	const removeItemFromCart = (itemId) => {
+		setCartItems(cartItems.filter((item) => item.id !== itemId));
+	};
+
 	return (
 		<div className="app">
 			<h1>Shopping Cart</h1>
 			<div className="content">
 				<ItemList addItemToCart={addItemToCart} />
-				<Cart cartItems={cartItems} />
+				<Cart
+					cartItems={cartItems}
+					updateItemCount={updateItemCount}
+					removeItemFromCart={removeItemFromCart}
+				/>
 			</div>
 		</div>
 	);
