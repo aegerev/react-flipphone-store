@@ -32,7 +32,8 @@ export function App() {
 
 	return (
 		<div className="app">
-			<h1>Shopping Cart</h1>
+			<h1>The Flip Phone Store</h1>
+
 			<div className="content">
 				<ItemList addItemToCart={addItemToCart} />
 				<Cart
