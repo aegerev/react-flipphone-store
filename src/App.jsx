@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ItemList } from './components/ItemList.jsx';
 import { Cart }  from './components/Cart.jsx';
+import './App.css'
 
 export function App() {
 	const [cartItems, setCartItems] = useState([]);
